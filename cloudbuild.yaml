@@ -1,0 +1,28 @@
+# steps:
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '-t', 'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/my-image', '.']
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['push', 'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/my-image']
+
+steps:
+  # Step 1: Clone the source code from the repository
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', 'https://source.developers.google.com/p/$PROJECT_ID/r/$REPO_NAME', '.']
+  # Step 2: Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/my-image:$COMMIT_SHA', '.']
+  # Step 3: Push the Docker image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/my-image:$COMMIT_SHA']
+  # Step 4: Save the code to Source Repositories
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['push', 'https://source.developers.google.com/p/$PROJECT_ID/r/$REPO_NAME', '--all']
+
+images:
+  # Define the Docker image to push to Artifact Registry
+  - gcr.io/$PROJECT_ID/my-image:$COMMIT_SHA
+
+# Define the substitutions for variables used in the build steps
+substitutions:
+  _REPO_NAME: gcp_cicd_flask_app
+  _BRANCH_NAME: main
