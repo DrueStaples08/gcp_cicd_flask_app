@@ -3,17 +3,14 @@
 import argparse
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--username', type=str, default='Unknown')
-
-
-
-def greeting(name: str)->str:
+def greeting(name):
     return 'Hello ' + name
 
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--username', type=str, default='Unknown')
     args = parser.parse_args()
     dict_args = vars(args)
     str_username = dict_args['username']
