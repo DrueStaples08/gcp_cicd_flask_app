@@ -1,9 +1,6 @@
-# simple unit test
+# Unit Tests which are automatically ran with Github Actions
 import sys
 sys.path.append('../')
-
-# simple unit test
-# from great_main import greeting
 from greet_main import greeting
 
 
