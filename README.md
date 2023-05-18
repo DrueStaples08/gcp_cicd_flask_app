@@ -47,3 +47,5 @@ Once a merge is commited to main, the Cloud Build file will do the following:
 - Updated code will be pushed to Source Repositories
 
 - Docker image will be saved to Artifact Registry in GCP
+
+- Model will be saved to GCS and Vertex AI's Model Registry
