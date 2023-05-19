@@ -1,4 +1,11 @@
 steps:
+  # Step 0: Configure gcloud as the credential helper for Docker
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud auth configure-docker us-central1-docker.pkg.dev
   # Step 1: Clone the source code from the repository
   - name: 'gcr.io/cloud-builders/git'
     args: ['clone', 'https://source.developers.google.com/p/$PROJECT_ID/r/$REPO_NAME', '.']
