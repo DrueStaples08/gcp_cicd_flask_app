@@ -20,7 +20,9 @@ steps:
 
 images:
   # Define the Docker image to push to Artifact Registry
-  - gcr.io/$PROJECT_ID/my-image:$COMMIT_SHA
+  # - gcr.io/$PROJECT_ID/my-image:$COMMIT_SHA
+  #  - us-central1-docker.pkg.dev/cogent-density-239117/cicd-practice-repo
+  - us-central1-docker.pkg.dev/cogent-density-239117/cicd-practice-repo:$COMMIT_SHA
 
 # Define the substitutions for variables used in the build steps
 substitutions:
