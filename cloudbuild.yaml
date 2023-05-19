@@ -24,5 +24,5 @@ images:
 
 # Define the substitutions for variables used in the build steps
 substitutions:
-  _REPO_NAME: gcp_cicd_flask_app
+  _REPO_NAME: cicd-practice-repo
   _BRANCH_NAME: main
