@@ -28,3 +28,7 @@ images: ['us-central1-docker.pkg.dev/cogent-density-239117/cicd-practice-repo/$C
 substitutions:
   _REPO_NAME: cicd-practice-repo
   _BRANCH_NAME: main
+
+
+options:
+  logging: CLOUD_LOGGING_ONLY
