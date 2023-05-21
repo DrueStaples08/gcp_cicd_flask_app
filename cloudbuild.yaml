@@ -15,9 +15,9 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/cogent-density-239117/cicd-practice-repo/my-image:$COMMIT_SHA']
 
-  # Step 4: Save the code to Source Repositories
-  - name: 'gcr.io/cloud-builders/git'
-    args: ['push', 'https://source.developers.google.com/p/cogent-density-239117/r/$REPO_NAME', '--all']
+#   # Step 4: Save the code to Source Repositories
+#   - name: 'gcr.io/cloud-builders/git'
+#     args: ['push', 'https://source.developers.google.com/p/cogent-density-239117/r/$REPO_NAME', '--all']
 
 images:
   # Define the Docker image to push to Artifact Registry
