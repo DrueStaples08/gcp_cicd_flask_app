@@ -17,7 +17,8 @@ steps:
 
   # Step 4: Copy the image from Container Registry to Artifact Registry
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['artifact', 'images', 'import', 'gcr.io/cogent-density-239117/my-image:$COMMIT_SHA', '--location=us-central1', '--repository=us-central1-docker.pkg.dev/cogent-density-239117/cicd-practice-repo']
+    args: ['artifact', 'images', 'import', 'gcr.io/cogent-density-239117/my-image:$COMMIT_SHA', '--location=us-central1', '--cicd-practice-repo']
+    #args: ['artifact', 'images', 'import', 'gcr.io/cogent-density-239117/my-image:$COMMIT_SHA', '--location=us-central1', '--repository=us-central1-docker.pkg.dev/cogent-density-239117/cicd-practice-repo']
 
   # Step 5: Save the code to Source Repositories
   - name: 'gcr.io/cloud-builders/git'
